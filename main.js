@@ -8,7 +8,7 @@
 
 
       function control(e) {
-          if (e.keyCode === 32) {
+          if (e.keyCode === 32 ) {
               if (!isJumping) {
                   isJumping = true;
                   jump()
@@ -17,7 +17,7 @@
               console.log('space entered')
           }
       }
-      document.addEventListener('keyup', control)
+      document.addEventListener('keyup touchend', control)
 
       let position = 0;
 
