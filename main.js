@@ -17,7 +17,18 @@
               console.log('space entered')
           }
       }
-      document.addEventListener('keyup touchend', control)
+
+      function controlMob() {
+        
+            if (!isJumping) {
+                isJumping = true;
+                jump()
+            }
+            console.log('space entered')
+        
+        }
+      document.addEventListener('touchend', controlMob)
+      document.addEventListener('keyup', control)
 
       let position = 0;
 
