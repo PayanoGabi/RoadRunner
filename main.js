@@ -2,6 +2,10 @@
       const dino = document.querySelector('.dino');
       const grid = document.querySelector('.grid')
       const alert = document.querySelector('.alert')
+      const gameOverPic = document.querySelector('#gameOverPic')
+      const exitBtn = document.querySelector('#exitBtn');
+      const replayBtn = document.querySelector('#replayBtn')
+      const gameFinished = document.querySelector('.finishedGame')
       let isJumping = false;
       let gravity = 0.9;
       let gameOver = false;
@@ -13,19 +17,15 @@
                   isJumping = true;
                   jump()
               }
-              //space
-              console.log('space entered')
+            
           }
       }
 
       function controlMob() {
-        
             if (!isJumping) {
                 isJumping = true;
                 jump()
             }
-            console.log('space entered')
-        
         }
       document.addEventListener('touchend', controlMob)
       document.addEventListener('keyup', control)
@@ -35,13 +35,13 @@
       function jump() {
           let count = 0;
           let timerId = setInterval(function () {
-              console.log('up');
+             // console.log('up');
               position += 30
               dino.style.bottom = position + 'px';
 
               if (count === 15) { //divisible by 30
                   clearInterval(timerId);
-                  console.log('down');
+                 // console.log('down');
                   let downTimerId = setInterval(function () {
                       if (count === 0) {
                           clearInterval(downTimerId)
@@ -77,6 +77,12 @@
                   clearInterval(timerId);
                   gameOver = true
                   alert.innerHTML = "Game Over";
+                  gameOverPic.setAttribute('src', 'https://64.media.tumblr.com/f23656943ce76476cc2d9cbe46f7b082/tumblr_n1g5u4k9Em1svwlszo1_500.gifv');
+                  replayBtn.style.visibility = "visible";
+                  exitBtn.style.visibility = "visible";
+                  gameFinished.style = "display: flex;flex-direction: column;align-items: center;"
+
+
 
                   while(grid.firstChild){
                       grid.removeChild(grid.lastChild)
