@@ -94,8 +94,10 @@
           let timerId = setInterval(function(){
               if(obstaclePosition > 0 && obstaclePosition < 50  && position < 50){ 
                   clearInterval(timerId);
-                  gameOver = true
-                  if(gameOver && startPrompt)  body.removeChild(startPrompt)
+                  gameOver = true;
+                  startPrompt.style.display = "none"
+                    
+                
                   gameOverPic.setAttribute('src', 'https://64.media.tumblr.com/f23656943ce76476cc2d9cbe46f7b082/tumblr_n1g5u4k9Em1svwlszo1_500.gifv');
                   replayBtn.style.visibility = "visible";
                   exitBtn.style.visibility = "visible";
