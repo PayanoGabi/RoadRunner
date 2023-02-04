@@ -80,8 +80,8 @@
                   replayBtn.style.visibility = "visible";
                   exitBtn.style.visibility = "visible";
                   gameFinished.style = "display: flex;flex-direction: column;align-items: center;";
-                  replayBtn.innerHTML = "Play again";
-                  exitBtn.innerHTML = "Back to google";
+                  replayBtn.innerHTML = "<h3>Play again<h3>";
+                  exitBtn.innerHTML = "<h3>Back to google";
 
 
 
