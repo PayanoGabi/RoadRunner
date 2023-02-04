@@ -76,11 +76,15 @@
               if(obstaclePosition > 0 && obstaclePosition < 50  && position < 50){ 
                   clearInterval(timerId);
                   gameOver = true
-                  alert.innerHTML = "Game Over";
                   gameOverPic.setAttribute('src', 'https://64.media.tumblr.com/f23656943ce76476cc2d9cbe46f7b082/tumblr_n1g5u4k9Em1svwlszo1_500.gifv');
                   replayBtn.style.visibility = "visible";
                   exitBtn.style.visibility = "visible";
-                  gameFinished.style = "display: flex;flex-direction: column;align-items: center;"
+                  gameFinished.style = "display: flex;flex-direction: column;align-items: center;";
+                  replayBtn.innerHTML = "Play again";
+                  exitBtn.innerHTML = "Back to google";
+
+
+
 
 
 
