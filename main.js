@@ -1,4 +1,5 @@
   document.addEventListener('DOMContentLoaded', () => {
+      const body = document.querySelector('body')
       const dino = document.querySelector('.dino');
       const grid = document.querySelector('.grid')
       const alert = document.querySelector('.alert')
@@ -6,9 +7,27 @@
       const exitBtn = document.querySelector('#exitBtn');
       const replayBtn = document.querySelector('#replayBtn')
       const gameFinished = document.querySelector('.finishedGame')
+      var startPrompt = document.createElement('h1') 
       let isJumping = false;
       let gravity = 0.9;
       let gameOver = false;
+
+      if(!gameOver){
+        startPrompt.style = "font-family: 'Amatic SC', cursive;"+ "font-size:70px;color: aliceblue;";
+        startPrompt.innerHTML = "Press space or"+"<br>"+" tap to jump";
+        body.appendChild(startPrompt)
+      }
+
+
+      var delayInMilliseconds = 5000; 
+      setTimeout(function() {
+        body.removeChild(startPrompt)
+        clearTimeout(delayInMilliseconds)
+     }, delayInMilliseconds);
+
+
+
+
 
 
       function control(e) {
@@ -76,25 +95,20 @@
               if(obstaclePosition > 0 && obstaclePosition < 50  && position < 50){ 
                   clearInterval(timerId);
                   gameOver = true
+                  if(gameOver && startPrompt)  body.removeChild(startPrompt)
                   gameOverPic.setAttribute('src', 'https://64.media.tumblr.com/f23656943ce76476cc2d9cbe46f7b082/tumblr_n1g5u4k9Em1svwlszo1_500.gifv');
                   replayBtn.style.visibility = "visible";
                   exitBtn.style.visibility = "visible";
-                  gameFinished.style = "display: flex;flex-direction: column;align-items: center;";
+                  body.style = "background-color: lightblue;"
+                  gameFinished.style = "display: flex;flex-direction: column;align-items: center;" + "color: aliceblue;";
                   replayBtn.innerHTML = "<h3>Play again<h3>";
                   exitBtn.innerHTML = "<h3>Back to google";
                   replayBtn.onclick = function(){
                       location.reload()
                   }
                   exitBtn.onclick = function(){
-                    window.location.href = "https://google.com";
-
-                      
+                    window.location.href = "https://google.com";                     
                   }
-
-
-
-
-
 
                   while(grid.firstChild){
                       grid.removeChild(grid.lastChild)
@@ -105,6 +119,9 @@
           },20)
 
           if(!gameOver) setTimeout(generateObstacles, randomTime)
+          
+         
+        
 
       }
       generateObstacles()
