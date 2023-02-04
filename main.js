@@ -82,6 +82,14 @@
                   gameFinished.style = "display: flex;flex-direction: column;align-items: center;";
                   replayBtn.innerHTML = "<h3>Play again<h3>";
                   exitBtn.innerHTML = "<h3>Back to google";
+                  replayBtn.onclick = function(){
+                      location.reload()
+                  }
+                  exitBtn.onclick = function(){
+                    window.location.href = "https://google.com";
+
+                      
+                  }
 
 
 
